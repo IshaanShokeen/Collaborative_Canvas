@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaborative Canvas 🎨</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="toolbar">
+  <div class="left-tools">
+    <select id="tool">
+      <option value="brush">🖌️ Brush</option>
+      <option value="eraser">🧽 Eraser</option>
+    </select>
+    <div id="colorPalette" class="palette">
+  <div class="color-swatch" data-color="#e53935" style="background:#e53935"></div>
+  <div class="color-swatch" data-color="#8e24aa" style="background:#8e24aa"></div>
+  <div class="color-swatch" data-color="#3949ab" style="background:#3949ab"></div>
+  <div class="color-swatch" data-color="#00897b" style="background:#00897b"></div>
+  <div class="color-swatch" data-color="#f4511e" style="background:#f4511e"></div>
+  <div class="color-swatch" data-color="#fdd835" style="background:#fdd835"></div>
+  <div class="color-swatch" data-color="#6d4c41" style="background:#6d4c41"></div>
+  <div class="color-swatch" data-color="#000000" style="background:#000"></div>
+  <div class="color-swatch" data-color="#ffffff" style="background:#fff; border:1px solid #ddd"></div>
+  <button id="moreColors" class="more-btn">🎨 More Colors</button>
+</div>
+
+<!-- Popup Modal -->
+<div id="colorPopup" class="color-popup hidden">
+  <div class="popup-content">
+    <h4>🎨 Choose Custom Color</h4>
+    <input type="color" id="popupColorPicker" value="#3949ab">
+    <input type="text" id="popupHex" maxlength="7" value="#3949ab">
+    <div class="popup-actions">
+      <button id="applyColor">Apply</button>
+      <button id="closePopup">Close</button>
+    </div>
+  </div>
+</div>
+
+
+
+    <input type="range" id="width" min="1" max="40" value="4">
+    <button id="undo">↩️ Undo</button>
+    <button id="redo">↪️ Redo</button>
+  </div>
+  <div id="users">
+    Users: <span id="userList">(0)</span>
+  </div>
+</div>
+
+
+
+  <div id="canvasContainer">
+    <canvas id="canvas"></canvas>
+    <div id="cursors"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="websocket.js"></script>
+  <script src="canvas.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
